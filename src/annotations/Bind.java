@@ -6,7 +6,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.annotation.Target;
 
 
-@Retention(RetentionPolicy.RUNTIME) // Аннотация доступна во время выполнения
-@Target(ElementType.FIELD) // Применима только к полям
+@Retention(RetentionPolicy.RUNTIME) // annotation is available while executing
+@Target(ElementType.FIELD) // only fields
 public @interface Bind {
 }

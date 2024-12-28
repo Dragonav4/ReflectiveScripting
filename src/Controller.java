@@ -10,8 +10,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Controller {
-    private Object modelInstance;
-    private Map<String, Object> modelData = new LinkedHashMap<>();
+    private final Object modelInstance;
+    private final Map<String, Object> modelData = new LinkedHashMap<>();
     private int dataSize;
 
     public Controller(String modelName) {
@@ -103,10 +103,8 @@ public class Controller {
 
     public Controller runModel() {
         try {
-            System.out.println("Running model...");
             modelInstance.getClass().getMethod("run").invoke(modelInstance);
             readDataFromModel();
-            System.out.println("Model executed successfully.");
         } catch (NoSuchMethodException e) {
             throw new RuntimeException("The 'run' method is not defined in the model.", e);
         } catch (Exception e) {

@@ -1,5 +1,3 @@
-import javax.script.ScriptEngine;
-import javax.script.ScriptEngineManager;
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
 import java.awt.*;
@@ -51,10 +49,10 @@ public class ModelingFrameworkSample extends JFrame {
         JPanel listPanel = new JPanel(new GridLayout(1, 2, 5, 5));
 
         modelList = new JList<>(new String[]{"Model1", "Model2", "Model3", "MultiAgentSim"});
-        modelList.addListSelectionListener(e -> handleModelSelection());
+        modelList.addListSelectionListener(_ -> handleModelSelection());
 
         dataList = new JList<>(new String[]{"data1.txt", "data2.txt", "data3.txt"});
-        dataList.addListSelectionListener(e -> handleDataSelection());
+        dataList.addListSelectionListener(_ -> handleDataSelection());
 
         // Scrolling
         JScrollPane modelScroll = new JScrollPane(modelList);
@@ -68,7 +66,7 @@ public class ModelingFrameworkSample extends JFrame {
         leftPanel.add(listPanel, BorderLayout.CENTER);
 
         runModelButton = new JButton("Run model");
-        runModelButton.addActionListener(e -> onRunModelButtonClicked());
+        runModelButton.addActionListener(_ -> onRunModelButtonClicked());
         runModelButton.setEnabled(false);
 
         leftPanel.add(runModelButton, BorderLayout.SOUTH);
@@ -126,8 +124,8 @@ public class ModelingFrameworkSample extends JFrame {
 
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
-        runScriptButton.addActionListener(e -> onRunScriptButtonClicked());
-        createAndRunScriptButton.addActionListener(e -> onCreateAndRunAdHocScript());
+        runScriptButton.addActionListener(_ -> onRunScriptButtonClicked());
+        createAndRunScriptButton.addActionListener(_ -> onCreateAndRunAdHocScript());
         return rightPanel;
     }
 

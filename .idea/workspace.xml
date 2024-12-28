@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="657cb4c8-5073-449b-adec-2cb4f5271bc3" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/groovy_5_0_0_alpha_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/UTP_s31722_ENG_project3.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-ant-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-ant-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-astbuilder-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-astbuilder-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-cli-commons-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-cli-commons-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-cli-picocli-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-cli-picocli-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-console-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-console-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-contracts-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-contracts-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-datetime-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-datetime-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-dateutil-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-dateutil-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-docgenerator-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-docgenerator-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-ginq-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-ginq-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-groovydoc-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-groovydoc-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-groovysh-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-groovysh-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-jmx-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-jmx-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-json-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-json-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-jsr223-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-jsr223-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-macro-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-macro-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-macro-library-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-macro-library-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-nio-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-nio-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-servlet-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-servlet-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-sql-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-sql-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-swing-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-swing-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-templates-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-templates-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-test-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-test-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-test-junit5-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-test-junit5-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-testng-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-testng-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-toml-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-toml-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-typecheckers-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-typecheckers-5.0.0-alpha-1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-xml-5.0.0-alpha-1-sources.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/groovy-xml-5.0.0-alpha-1.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ModelingFrameworkSample.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ModelingFrameworkSample.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/annotations/Bind.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/annotations/Bind.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/data/data2.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/data/data2.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/scripts/script1.groovy" beforeDir="false" afterPath="$PROJECT_DIR$/src/scripts/script1.groovy" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="AnnotationType" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="2qaEa4Y9QEmCTw8ZR3EMTTeXlf8" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ModelingFrameworkSample.executor&quot;: &quot;Run&quot;,
+    &quot;Application.RunMain.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/dragonav/Desktop/Study/UTP/UTP_s31722_ENG_Project3/UTP_s31722_ENG_project3/src/scripts&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/scripts" />
+      <recent name="$PROJECT_DIR$/src/resources/data" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="models" />
+      <recent name="annotations" />
+      <recent name="resources.data.models" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="RunMain" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="Main" />
+      <module name="UTP_s31722_ENG_project3" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="657cb4c8-5073-449b-adec-2cb4f5271bc3" name="Changes" comment="" />
+      <created>1734892346285</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1734892346285</updated>
+      <workItem from="1734892347730" duration="4131000" />
+      <workItem from="1735060046361" duration="35462000" />
+      <workItem from="1735154252901" duration="1920000" />
+      <workItem from="1735307374524" duration="610000" />
+      <workItem from="1735327260619" duration="126000" />
+      <workItem from="1735385823162" duration="2527000" />
+      <workItem from="1735389563552" duration="10000" />
+      <workItem from="1735390839134" duration="345000" />
+      <workItem from="1735392082648" duration="84000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
