@@ -1,8 +1,9 @@
 package models;
 
 import annotations.Bind;
+import interfaces.IModel;
 
-public class Model1 {
+public class Model1 implements IModel {
     @Bind
     private int LL; //number of years
     @Bind

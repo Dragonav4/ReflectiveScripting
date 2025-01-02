@@ -1,17 +1,22 @@
+import interfaces.IModel;
+
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import javax.tools.JavaCompiler;
+import javax.tools.ToolProvider;
 import java.awt.*;
 import java.io.*;
 import java.util.Arrays;
 
 public class ModelingFrameworkSample extends JFrame {
-    private static final String DATA_FOLDER = "data/";
+    private static final String DATA_FOLDER = "src/data/";
+    private static final String MODELS_FOLDER = "src/models/";
     private static final String SCRIPTS_FOLDER = "src/scripts/";
     private static final int FRAME_WIDTH = 800;
     private static final int FRAME_HEIGHT = 500;
     private DefaultTableModel tableModel;
     private JList<String> modelList, dataList;
-    private Controller modelController;
+    private final Controller modelController = new Controller();
     private JButton runModelButton, runScriptButton, createAndRunScriptButton;
 
     public ModelingFrameworkSample() {
@@ -37,6 +42,77 @@ public class ModelingFrameworkSample extends JFrame {
         setLocationRelativeTo(null);
     }
 
+
+    private String[] getAvailableModels() {
+        try {
+            compileJavaFiles();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+        File modelsDirectory = new File(MODELS_FOLDER);
+        if (!modelsDirectory.exists() || !modelsDirectory.isDirectory()) {
+            return new String[0];
+        }
+
+        File[] modelFiles = modelsDirectory.listFiles((dir, name) -> name.endsWith(".class"));
+        if (modelFiles == null || modelFiles.length == 0) {
+            return new String[0];
+        }
+
+        return Arrays.stream(modelFiles)
+                .map(file -> file.getName().replace(".class", ""))
+                .filter(className -> isModelValid("models." + className)).sorted()
+                .toArray(String[]::new);
+    }
+
+    private boolean isModelValid(String className) {
+        try {
+            Class<?> clazz = Class.forName(className);
+            return IModel.class.isAssignableFrom(clazz);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    private String[] getAvailableDataFiles() {
+        File dataDirectory = new File(DATA_FOLDER);
+        if (!dataDirectory.exists() || !dataDirectory.isDirectory()) {
+            JOptionPane.showMessageDialog(this, "No directory found OR isn't a Directory.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return new String[0];
+        }
+        File[] dataFiles = dataDirectory.listFiles(((dir, name) -> name.endsWith(".txt")));
+        if (dataFiles == null || dataFiles.length == 0) {
+            JOptionPane.showMessageDialog(this, "No data files found in the 'data' folder.", "Warning", JOptionPane.WARNING_MESSAGE);
+            return new String[0];
+        }
+        return Arrays.stream(dataFiles)
+                .map(File::getName)
+                .sorted()
+                .toArray(String[]::new);
+    }
+
+    private void compileJavaFiles() throws IOException {
+        File modelsDirectory = new File("src/models/");
+        File[] javaFiles = modelsDirectory.listFiles(((dir, name) -> name.endsWith(".java")));
+        if (javaFiles == null || javaFiles.length == 0) {
+            return;
+        }
+
+        JavaCompiler compiler = ToolProvider.getSystemJavaCompiler();
+        if (compiler == null) {
+            throw new IllegalStateException("Java Compiler is not available.");
+        }
+
+        for (File file : javaFiles) {
+            int result = compiler.run(null, null, null, file.getPath());
+            if (result != 0) {
+                throw new IOException("Failed to compile " + file.getName());
+            }
+        }
+    }
+
     private JPanel createLeftPanel() {
         // --- LEFT SIDE (Panel for choosing model and data.txt) ---
         JPanel leftPanel = new JPanel(new BorderLayout(5, 5));
@@ -48,10 +124,10 @@ public class ModelingFrameworkSample extends JFrame {
         // Two lists(models and data files) one to one
         JPanel listPanel = new JPanel(new GridLayout(1, 2, 5, 5));
 
-        modelList = new JList<>(new String[]{"Model1", "Model2", "Model3", "MultiAgentSim"});
+        modelList = new JList<>(getAvailableModels());
         modelList.addListSelectionListener(_ -> handleModelSelection());
 
-        dataList = new JList<>(new String[]{"data1.txt", "data2.txt", "data3.txt"});
+        dataList = new JList<>(getAvailableDataFiles());
         dataList.addListSelectionListener(_ -> handleDataSelection());
 
         // Scrolling
@@ -77,9 +153,8 @@ public class ModelingFrameworkSample extends JFrame {
     private void handleModelSelection() {
         try {
             String modelName = modelList.getSelectedValue();
-            modelController = new Controller(modelName);
+            modelController.setModel(modelName);
         } catch (Exception ex) {
-            modelController = null;
             runModelButton.setEnabled(false);
             runScriptButton.setEnabled(false);
             createAndRunScriptButton.setEnabled(false);
@@ -121,7 +196,6 @@ public class ModelingFrameworkSample extends JFrame {
         createAndRunScriptButton.setEnabled(false);
         bottomPanel.add(runScriptButton);
         bottomPanel.add(createAndRunScriptButton);
-
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
         runScriptButton.addActionListener(_ -> onRunScriptButtonClicked());
@@ -154,8 +228,6 @@ public class ModelingFrameworkSample extends JFrame {
         }
     }
 
-
-
     /**
      * Executes a script passed as a code string.
      */
@@ -163,12 +235,10 @@ public class ModelingFrameworkSample extends JFrame {
         try {
             modelController.runScript(scriptText);
             refreshTable();
-        }
-        catch(Exception ex) {
+        } catch (Exception ex) {
             showErrorMessage(ex.getMessage());
         }
     }
-
 
     private void showErrorMessage(String text) {
         JOptionPane.showMessageDialog(this, text, "Error", JOptionPane.ERROR_MESSAGE);
@@ -227,8 +297,8 @@ public class ModelingFrameworkSample extends JFrame {
     }
 
     private void refreshTable() {
-        String csvResults = modelController.getResultAsCSV();
-        String[][] data = parseCsvForTable(csvResults);
+        String tsvResults = modelController.getResultAsTSV();
+        String[][] data = parseTsvForTable(tsvResults);
         if (data.length == 0) {
             JOptionPane.showMessageDialog(this, "No data to display.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
@@ -238,11 +308,11 @@ public class ModelingFrameworkSample extends JFrame {
         tableModel.setDataVector(tableData, columnNames);
     }
 
-    private String[][] parseCsvForTable(String csv) {
+    private String[][] parseTsvForTable(String csv) {
         String[] rows = csv.split("\n");
         String[][] data = new String[rows.length][];
         for (int i = 0; i < rows.length; i++) {
-            data[i] = rows[i].split(",");
+            data[i] = rows[i].split("\t");
         }
         return data;
     }

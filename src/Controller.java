@@ -10,11 +10,11 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 
 public class Controller {
-    private final Object modelInstance;
+    private Object modelInstance;
     private final Map<String, Object> modelData = new LinkedHashMap<>();
     private int dataSize;
 
-    public Controller(String modelName) {
+    public void setModel(String modelName) {
         try {
             Class<?> modelClass = Class.forName("models." + modelName);
             this.modelInstance = modelClass.getDeclaredConstructor().newInstance();
@@ -23,10 +23,9 @@ public class Controller {
         }
     }
 
-    public Controller readDataFrom(String fname) throws Exception {
+    public Controller readDataFrom(String filePath) throws Exception {
         modelData.clear();
         try {
-            String filePath = "src/" + fname;
             BufferedReader reader = new BufferedReader(new FileReader(filePath));
             String line;
             while ((line = reader.readLine()) != null) {
@@ -60,9 +59,8 @@ public class Controller {
                     }
                 }
             }
-            bindDataModel();
         } catch (Exception _) {
-            throw new Exception("Error reading data from file: " + fname);
+            throw new Exception("Error reading data from file: " + filePath);
         }
         return this;
     }
@@ -80,7 +78,7 @@ public class Controller {
         }
     }
 
-    public String getResultAsCSV() {
+    public String getResultAsTSV() {
         StringBuilder CSV = new StringBuilder();
         for (var entry : modelData.entrySet()) {
             var fieldName = entry.getKey();
@@ -89,12 +87,12 @@ public class Controller {
                 var array = (double[]) value;
                 CSV.append(fieldName);
                 for (double v : array) {
-                    CSV.append(",").append(v);
+                    CSV.append("\t").append(v);
                 }
                 CSV.append("\n");
             } else if (fieldName == "LATA" && value instanceof String[]) {
                 var array = (String[]) value;
-                CSV.append(String.join(",", array));
+                CSV.append(String.join("\t", array));
                 CSV.append("\n");
             }
         }
@@ -103,6 +101,7 @@ public class Controller {
 
     public Controller runModel() {
         try {
+            bindDataModel();
             modelInstance.getClass().getMethod("run").invoke(modelInstance);
             readDataFromModel();
         } catch (NoSuchMethodException e) {
@@ -112,7 +111,6 @@ public class Controller {
         }
         return this;
     }
-
     private Controller readDataFromModel() throws IllegalAccessException {
         for (var field : modelInstance.getClass().getDeclaredFields()) {
             if (field.isAnnotationPresent(Bind.class)) {
