@@ -21,14 +21,14 @@ The project emphasizes flexibility in handling simulation models, managing input
 
 ## Screenshots
 ### Main GUI interface
-![Main GUI interface](src/screenshotsOfUsage/MainGUIInterface.png)
+![Main GUI interface](src/screensOfUsage/MainGUIInterface.png)
 
 ### Results output
-![GUI with results output](src/screenshotsOfUsage/ResultOutput.png)
+![GUI with results output](src/screensOfUsage/ResultOutput.png)
 ## Run script from file
-![Run script from file](src/screenshotsOfUsage/RunScriptFromFile.png)
+![Run script from file](src/screensOfUsage/RunScriptFromFile.png)
 ## Enter your ad hoc groovy script
-![Enter your ad hoc groovy script](src/screenshotsOfUsage/EnterYourAdHocGroovyscript.png)
+![Enter your ad hoc groovy script](src/screensOfUsage/EnterYourAdHocGroovyscript.png)
 
 
 ## Technologies Used
