@@ -4,46 +4,25 @@ import annotations.Bind;
 import interfaces.IModel;
 
 public class Model2 implements IModel {
-    @Bind
-    private int LL; //number of years
-    @Bind
-    private double[] twKI; // the growth rate of private consumption
-    @Bind
-    private double[] twKS; // the growth rate of public consumption
-    @Bind
-    private double[] twINW; // investment growth
-    @Bind
-    private double[] twEKS; // export growth
-    @Bind
-    private double[] twIMP; // import growth
+    @Bind private int LL; // number of years
+    @Bind private double[] savingsRate; // savings rate for each year
+    @Bind private double[] GDP; // Gross Domestic Product
+    @Bind private double[] consumption; // consumption for each year
 
-    @Bind
-    private double[] KI; //private consumption
-    @Bind
-    private double[] KS; // public consumption
-    @Bind
-    private double[] INW; // investments
-    @Bind
-    private double[] EKS; // export
-    @Bind
-    private double[] IMP; // import
-    @Bind
-    private double[] PKB; //GDP
+    @Bind private double[] savings; // savings for each year
+    @Bind private double[] investments; // investments for each year
 
-
-    private double temp; // this field is not associated with the data model or with the results
-
-    public Model2() {
-    }
+    public Model2() {}
 
     public void run() {
-        for (int t = 1; t < LL; t++) {
-            KI[t] = 1+t;
-            KS[t] = 2+t;
-            INW[t] = 3+t;
-            EKS[t] = EKS[t]/1000;
-            IMP[t] = IMP[t]/10000;
-            PKB[t] = PKB[t]/3000;
+        // Initialize derived arrays
+        savings = new double[LL];
+        investments = new double[LL];
+
+        // Calculate savings and investments
+        for (int t = 0; t < LL; t++) {
+            savings[t] = GDP[t] * savingsRate[t];
+            investments[t] = GDP[t] - savings[t];
         }
     }
 }

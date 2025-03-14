@@ -4,18 +4,16 @@ import annotations.Bind;
 import interfaces.IModel;
 
 public class Model3 implements IModel {
-    @Bind
-    private int LL; //number of years
-    @Bind
-    private double[] ZDEKS; // export
+    @Bind private int LL; // Number of years
+    @Bind private double[] baseGDP; // Base GDP values for each year
+    @Bind private double[] inflationRate; // Inflation rate (modifiable by the script)
 
+    @Bind private double[] realGDP; // Real GDP after applying inflation
 
-    public Model3() {
-    }
-
+    public Model3() {}
     public void run() {
-        for (int t = 1; t < LL; t++) {
-            ZDEKS[t] = t+1000;
+        for (int t = 0; t < LL; t++) {
+            realGDP[t] = baseGDP[t] * (1 - inflationRate[t] / 100);
         }
     }
 }
