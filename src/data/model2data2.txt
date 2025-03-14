@@ -1,0 +1,5 @@
+LATA    2010 2011 2012 2013
+savingsRate    0.18
+GDP            950
+savings        171
+investments    779

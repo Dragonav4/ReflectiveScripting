@@ -125,10 +125,10 @@ public class ModelingFrameworkSample extends JFrame {
         JPanel listPanel = new JPanel(new GridLayout(1, 2, 5, 5));
 
         modelList = new JList<>(getAvailableModels());
-        modelList.addListSelectionListener(_ -> handleModelSelection());
+        modelList.addListSelectionListener(e -> handleModelSelection());
 
         dataList = new JList<>(getAvailableDataFiles());
-        dataList.addListSelectionListener(_ -> handleDataSelection());
+        dataList.addListSelectionListener(e -> handleDataSelection());
 
         // Scrolling
         JScrollPane modelScroll = new JScrollPane(modelList);
@@ -142,7 +142,7 @@ public class ModelingFrameworkSample extends JFrame {
         leftPanel.add(listPanel, BorderLayout.CENTER);
 
         runModelButton = new JButton("Run model");
-        runModelButton.addActionListener(_ -> onRunModelButtonClicked());
+        runModelButton.addActionListener(e -> onRunModelButtonClicked());
         runModelButton.setEnabled(false);
 
         leftPanel.add(runModelButton, BorderLayout.SOUTH);
@@ -154,7 +154,7 @@ public class ModelingFrameworkSample extends JFrame {
         try {
             String modelName = modelList.getSelectedValue();
             modelController.setModel(modelName);
-        } catch (Exception ex) {
+        } catch (Exception ex) { //if cannot set model ->...
             runModelButton.setEnabled(false);
             runScriptButton.setEnabled(false);
             createAndRunScriptButton.setEnabled(false);
@@ -198,8 +198,8 @@ public class ModelingFrameworkSample extends JFrame {
         bottomPanel.add(createAndRunScriptButton);
         rightPanel.add(bottomPanel, BorderLayout.SOUTH);
 
-        runScriptButton.addActionListener(_ -> onRunScriptButtonClicked());
-        createAndRunScriptButton.addActionListener(_ -> onCreateAndRunAdHocScript());
+        runScriptButton.addActionListener(e -> onRunScriptButtonClicked());
+        createAndRunScriptButton.addActionListener(e -> onCreateAndRunAdHocScript());
         return rightPanel;
     }
 
@@ -303,8 +303,8 @@ public class ModelingFrameworkSample extends JFrame {
             JOptionPane.showMessageDialog(this, "No data to display.", "Warning", JOptionPane.WARNING_MESSAGE);
             return;
         }
-        String[] columnNames = data[0];
-        String[][] tableData = Arrays.copyOfRange(data, 1, data.length);
+        String[] columnNames = data[0]; //нулевая строка заголовки
+        String[][] tableData = Arrays.copyOfRange(data, 1, data.length); // первая заголовки
         tableModel.setDataVector(tableData, columnNames);
     }
 

@@ -1,0 +1,5 @@
+LATA    2015 2016 2017 2018 2019
+savingsRate    0.2
+GDP            1000
+savings        200
+investments    800

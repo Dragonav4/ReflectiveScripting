@@ -11,14 +11,14 @@ import java.util.Map;
 
 public class Controller {
     private Object modelInstance;
-    private final Map<String, Object> modelData = new LinkedHashMap<>();
+    private final Map<String, Object> modelData = new LinkedHashMap<>(); // чтобы сохранить порядок вставки
     private int dataSize;
 
     public void setModel(String modelName) {
         try {
             Class<?> modelClass = Class.forName("models." + modelName);
             this.modelInstance = modelClass.getDeclaredConstructor().newInstance();
-        } catch (Exception _) {
+        } catch (Exception e) {
             throw new RuntimeException("Error initializing model: " + modelName);
         }
     }
@@ -59,7 +59,7 @@ public class Controller {
                     }
                 }
             }
-        } catch (Exception _) {
+        } catch (Exception e) {
             throw new Exception("Error reading data from file: " + filePath);
         }
         return this;
@@ -101,9 +101,9 @@ public class Controller {
 
     public Controller runModel() {
         try {
-            bindDataModel();
+            bindDataModel(); // читает из data
             modelInstance.getClass().getMethod("run").invoke(modelInstance);
-            readDataFromModel();
+            readDataFromModel(); // читает из Model
         } catch (NoSuchMethodException e) {
             throw new RuntimeException("The 'run' method is not defined in the model.", e);
         } catch (Exception e) {
@@ -127,7 +127,6 @@ public class Controller {
 
     public Controller runScriptFromFile(String fname) throws IOException, ScriptException {
         var path = Paths.get(fname);
-
         String scriptText = Files.readString(path);
         return runScript(scriptText);
     }
@@ -154,7 +153,7 @@ public class Controller {
         for (var entry : engineBindings.entrySet()) {
             var key = entry.getKey();
             var value = entry.getValue();
-            if (key.length() > 1 && value instanceof double[])
+            if (key.length() > 1 && value instanceof double[]) //key.length() > 1: чтобы игнорировать однобуквенные переменные
                 modelData.put(key, value);
         }
         return this;
